@@ -1,0 +1,23 @@
+.modal-backdrop.show {
+    opacity: 0.6 !important; /* plus sombre que par défaut */
+    background-color: #000 !important;
+  }
+  
+  .accordion-button::after {
+    display: none;
+  }
+  .accordion-button i {
+    transition: transform 0.3s ease;
+  }
+  .accordion-button[aria-expanded="true"] i {
+    transform: rotate(180deg);
+  }
+
+/* Par défaut, on enlève toute bordure gênante */
+.accordion-button {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+
+  
