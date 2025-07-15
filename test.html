@@ -15,22 +15,32 @@
   </div>
   <div class="vignette"></div>
   <div class="edge-fade"></div>
-  <div class="center-text">
-    <h1>LA BANDE À FEMTO</h1>
-    <h2>VOTRE BANDE DÉMO SUR-MESURE</h2>
-  </div>
 
   <script>
     const mosaic = document.querySelector('.mosaic');
     const vignette = document.querySelector('.vignette');
     const edgeFade = document.querySelector('.edge-fade');
 
+    function createTitleBlock() {
+      const block = document.createElement('div');
+      block.classList.add('mosaic-item', 'title-block', 'big');
+      block.innerHTML = `
+        <h1>LA BANDE À FEMTO</h1>
+        <h2>VOTRE BANDE DÉMO SUR-MESURE</h2>
+      `;
+      return block;
+    }
+
     fetch('images/image_list.json')
       .then(r => r.json())
       .then(list => {
         list.sort(() => Math.random() - 0.5);
+        const insertIndex = Math.floor(list.length / 2);
         const sizeClasses = ['big', 'tall', 'wide'];
         list.forEach((path, i) => {
+          if (i === insertIndex) {
+            mosaic.appendChild(createTitleBlock());
+          }
           const item = document.createElement('div');
           item.classList.add('mosaic-item');
           if (Math.random() < 0.3) {
