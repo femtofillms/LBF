@@ -23,6 +23,7 @@
     const mosaic = document.querySelector('.mosaic');
     const vignette = document.querySelector('.vignette');
     const edgeFade = document.querySelector('.edge-fade');
+    const centerText = document.querySelector('.center-text');
 
     fetch('images/image_list.json')
       .then(r => r.json())
@@ -42,11 +43,12 @@
         });
       });
 
-    function updateUI() {
-      const ratio = Math.min(mosaic.scrollTop / 200, 1);
-      vignette.style.opacity = 1 - 0.8 * ratio;
-      edgeFade.style.opacity = 1 - ratio;
-    }
+      function updateUI() {
+        const ratio = Math.min(mosaic.scrollTop / 200, 1);
+        vignette.style.opacity = 1 - 0.8 * ratio;
+        edgeFade.style.opacity = 1 - ratio;
+        centerText.style.opacity = 1 - ratio;
+      }
 
     mosaic.addEventListener('scroll', updateUI);
     updateUI();

@@ -120,6 +120,7 @@ html, body {
   margin: 0;
   letter-spacing: 2px;
   text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
+  -webkit-text-stroke: 2px #ffffff;
 }
 
 .center-text h2 {
@@ -127,6 +128,7 @@ html, body {
   font-weight: 600;
   margin: 0.5rem 0 0;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  -webkit-text-stroke: 1px #ffffff;
 }
 
 .vignette {
