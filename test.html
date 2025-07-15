@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>Mosaïque d'images 100vh</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
   <div class="mosaic">
@@ -47,6 +48,84 @@
     <div class="mosaic-item wide"><img src="images/PULSION_ETALOS_V1_2.1.1.png" alt="Pulsion Etalos"></div>
   </div>
   <div class="vignette"></div>
-  <img class="center-image" src="images/Logo_FEMTO_I_Typo2_CLARET.png" alt="Logo central">
+  <div class="edge-fade"></div>
+  <div class="center-text">
+    <h1>LA BANDE À FEMTO</h1>
+    <h2>VOTRE BANDE DÉMO SUR-MESURE</h2>
+  </div>
+  <section class="info-section">
+    <h2>Ce que nous proposons</h2>
+    <ul>
+      <li>Écriture de scènes sur-mesure adaptées à votre âge, jeu et objectifs.</li>
+      <li>Coaching et direction d'acteur sur le tournage.</li>
+      <li>Prise en charge du casting (autres comédiens si nécessaire)</li>
+      <li>Tournage cinéma multi-caméras, lumière, son pro.</li>
+      <li>Montage, étalonnage, mixage pro.</li>
+      <li>Livraison sous 1 mois après tournage, prêt à l'emploi pour vos castings.</li>
+      <li>Polas pros (studio lumière naturelle) à prix réduit selon le pack.</li>
+    </ul>
+
+    <h2>Grille tarifaire 2025</h2>
+    <h3>Pack Essentiel - 950 EUR TTC</h3>
+    <ul>
+      <li>1 scène sur-mesure</li>
+      <li>Coaching et direction d'acteur</li>
+      <li>Montage + étalonnage + mixage</li>
+      <li>Livraison sous 1 mois</li>
+    </ul>
+
+    <h3>Pack Standard - 1250 EUR TTC</h3>
+    <ul>
+      <li>2 scènes sur-mesure</li>
+      <li>Coaching et direction d'acteur</li>
+      <li>Montage + étalonnage + mixage</li>
+      <li>Livraison sous 1 mois</li>
+      <li>Polas pros inclus + Photo de profil</li>
+    </ul>
+
+    <h3>Pack Premium - 1450 EUR TTC</h3>
+    <ul>
+      <li>3 scènes sur-mesure</li>
+      <li>Coaching et direction d'acteur</li>
+      <li>Repérage et décor spécifique si besoin</li>
+      <li>Tournage sur 1 à 2 jours</li>
+      <li>Montage + étalonnage + mixage</li>
+      <li>Livraison sous 1 mois</li>
+      <li>Polas pros inclus + image plateau et backstage</li>
+      <li>Option plan drone si besoin</li>
+    </ul>
+
+    <p>Option HMC<br>+150 sur tous les packs</p>
+    <p>Option Pola pro<br>+150 sur tous les packs</p>
+
+    <h2>Pourquoi Femtofilm ?</h2>
+    <p>Nous sommes une société de production avec une équipe de réalisation et de direction d'acteur. Nous avons travaillé pour des publicités, courts-métrages et contenus de marque. Basés dans le Sud, nous vous évitons de monter à Paris pour une bande démo de qualité. Livraison sous 1 mois garantie.</p>
+    <p>Contactez-nous : Insta : @femtofilms&nbsp;&nbsp;Mail : femtofilms@gmail.com&nbsp;&nbsp;Téléphone : 07.81.83.33.15</p>
+    <p>Nous échangerons sur vos besoins et objectifs avant l'écriture des scènes pour adapter au mieux votre bande démo à votre image.</p>
+  </section>
+
+  <script>
+    const mosaic = document.querySelector('.mosaic');
+    const vignette = document.querySelector('.vignette');
+    const edgeFade = document.querySelector('.edge-fade');
+    const centerText = document.querySelector('.center-text');
+    const infoSection = document.querySelector('.info-section');
+
+    function updateUI() {
+      const ratio = Math.min(mosaic.scrollTop / 200, 1);
+      vignette.style.opacity = 1 - 0.8 * ratio;
+      edgeFade.style.opacity = 1 - ratio;
+      if (ratio > 0.3) {
+        centerText.style.opacity = 0;
+        infoSection.classList.add('visible');
+      } else {
+        centerText.style.opacity = 1;
+        infoSection.classList.remove('visible');
+      }
+    }
+
+    mosaic.addEventListener('scroll', updateUI);
+    updateUI();
+  </script>
 </body>
 </html>
