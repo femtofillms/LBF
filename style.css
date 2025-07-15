@@ -136,15 +136,19 @@ html, body {
 }
 
 .center-text h1 {
-  font-size: 3rem;
+  font-family: 'Red Rose', 'Source Sans 3', sans-serif;
+  font-size: 4rem;
+  font-weight: 700;
   margin: 0;
-  letter-spacing: 2px;
-  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  letter-spacing: 3px;
+  text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
 }
 
 .center-text h2 {
-  font-size: 1.4rem;
-  margin: 0.5rem 0 0;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0.75rem 0 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
 
 
