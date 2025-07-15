@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Mosaïque Masonry avec vignettage fort et image centrale</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      background: #181818;
+      overflow: hidden;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      min-height: 100vh;
+      min-width: 100vw;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .vignette-wrapper {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+    }
+    /* VIGNETTAGE TRÈS PRONONCÉ */
+    .vignette {
+      position: absolute;
+      pointer-events: none;
+      z-index: 10;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at center,
+          rgba(0,0,0,0) 40%,
+          rgba(0,0,0,0.92) 75%,
+          rgba(0,0,0,0.98) 100%);
+      mix-blend-mode: multiply;
+    }
+    .grid {
+      position: relative;
+      height: 100vh;
+      width: calc(8 * 100px + 7 * 5px); /* 8 colonnes, 7 espaces */
+      margin: 0 auto;
+      overflow: hidden;
+      z-index: 2;
+      display: flex;
+    }
+    .grid-sizer, .grid-item {
+      width: 100px;
+    }
+    .grid-item {
+      margin: 2px 5px 2px 5px; /* ESPACE NET autour de chaque image */
+      box-sizing: border-box;
+      background: #232323;
+      border-radius: 10px;
+      transition: box-shadow .2s;
+    }
+    .grid-item img {
+      width: 100%;
+      display: block;
+      border-radius: 10px;
+      box-shadow: 0 2px 16px #0009;
+      background: #222;
+    }
+    /* Responsive : moins de colonnes sur petit écran */
+    @media (max-width: 1700px) {
+      .grid { width: calc(6 * 200px + 5 * 20px); }
+    }
+    @media (max-width: 1300px) {
+      .grid { width: calc(4 * 200px + 3 * 20px); }
+    }
+    @media (max-width: 900px) {
+      .grid { width: calc(2 * 200px + 1 * 20px); }
+    }
+    @media (max-width: 600px) {
+      .grid { width: 94vw; }
+      .grid-sizer, .grid-item { width: 46vw; }
+    }
+
+    /* IMAGE CENTRALE superposée */
+    .center-image {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      z-index: 100;
+      transform: translate(-50%, -50%);
+      width: 260px;    /* adapte la taille ici */
+      height: auto;
+      pointer-events: none; /* pour laisser cliquer sur la grille si besoin */
+      filter: drop-shadow(0 8px 32px #000b);
+      opacity: 0.95;
+    }
+    /* Option : effet responsive pour l'image centrale */
+    @media (max-width: 700px) {
+      .center-image { width: 38vw; }
+    }
+  </style>
+</head>
+<body>
+  <div class="vignette-wrapper">
+    <div class="grid">
+      <div class="grid-sizer"></div>
+      <!-- Images Masonry -->
+      <div class="grid-item"><img src="/LBF/images/DSC02603.JPG" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/DSC02615.JPG" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/DSC02798.JPG" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/DSC02904.JPG" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/DSC02997.JPG" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/DSC03241.JPG" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_ADLC_V1_1.7.1.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_ADLC_V1_1.21.1.PRE.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_ADLC_V1_1.30.1.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_ADLC_V1_1.34.1.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_GRIBOUILLE_V1_1.15.1.PRE.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_GRIBOUILLE_V1_1.34.1.PRE.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_RUPTUR_VDEF_1.41.1.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_RUPTUR_VDEF_1.117.1.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/ETALOS_RUPTUR_VDEF_1.126.1.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3087.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3286-2.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3297.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3377.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3492.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3622.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3654.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3687.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3818.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3851.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_3940.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_4025.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/IMG_4036.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/Logo_FEMTO_I_icon_CLARET2_SurFond.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/Logo_FEMTO_I_Typo2_CLARET.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/Photo 16-03-2024 07 29 27.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/Photo 16-03-2024 08 46 08.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/Photo 16-03-2024 08 56 01.jpg" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_1.20.1.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_1.24.1.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_1.42.1.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_1.73.1.png" alt=""></div>
+      <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_2.1.1.png" alt=""></div>
+    </div>
+    <!-- Vignettage TRÈS prononcé -->
+    <div class="vignette"></div>
+    <!-- IMAGE CENTRALE -->
+    <img class="center-image" src="/LBF/images/logo.png" alt="Logo central">
+    <!-- Change le chemin/nom pour ton image centrale -->
+  </div>
+  <!-- Masonry -->
+  <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+  <script>
+    window.onload = function() {
+      new Masonry('.grid', {
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-sizer',
+        gutter: 0,
+        percentPosition: false
+      });
+    }
+  </script>
+</body>
+</html>
