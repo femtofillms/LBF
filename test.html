@@ -52,16 +52,45 @@
           rgba(0,0,0,0.9) 80%,
           rgba(0,0,0,1) 100%);
       mix-blend-mode: multiply;
+      opacity: 1;
     }
 
-    .center-image {
+    .title-container {
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 250px;
+      text-align: center;
+      color: #fff;
       pointer-events: none;
       z-index: 10;
+      text-transform: uppercase;
+    }
+    .title-container h1 {
+      margin: 0;
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+    .title-container h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      letter-spacing: 3px;
+    }
+
+    .info-block {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+      color: #fff;
+      background: rgba(0,0,0,0.6);
+      padding: 20px;
+      margin: 20px 0;
+      grid-column: 1 / -1;
+      border-radius: 6px;
+    }
+    .info-block.visible {
+      opacity: 1;
+      transform: none;
     }
   </style>
 </head>
@@ -105,8 +134,51 @@
     <div class="mosaic-item big"><img src="images/PULSION_ETALOS_V1_1.42.1.png" alt=""></div>
     <div class="mosaic-item tall"><img src="images/PULSION_ETALOS_V1_1.73.1.png" alt=""></div>
     <div class="mosaic-item wide"><img src="images/PULSION_ETALOS_V1_2.1.1.png" alt=""></div>
+
+    <div class="info-block" id="info1">
+      <h3>Scénario sur-mesure</h3>
+      <p>Nous écrivons un scénario personnalisé qui vous met en valeur, en tenant compte de votre registre, de votre personnalité et des rôles que vous visez.</p>
+    </div>
+    <div class="info-block" id="info2">
+      <h3>Coaching personnalisé</h3>
+      <p>Une session de coaching individuel pour travailler votre intention, votre placement, et vous mettre en confiance avant le tournage.</p>
+    </div>
+    <div class="info-block" id="info3">
+      <h3>Tournage</h3>
+      <p>Un tournage encadré par des professionnels de l’image et du son pour un rendu cinématographique.</p>
+    </div>
+    <div class="info-block" id="info4">
+      <h3>Livraison rapide</h3>
+      <p>Nous assurons un montage rapide et professionnel. Vous recevez votre bande démo prête à être diffusée.</p>
+    </div>
   </div>
   <div class="vignette"></div>
-  <img class="center-image" src="images/Logo_FEMTO_I_Typo2_CLARET.png" alt="Logo central">
+  <div class="title-container">
+    <h1>LA BANDE À FEMTO</h1>
+    <h2>VOTRE BANDE DÉMO SUR‑MESURE</h2>
+  </div>
+
+  <script>
+    const mosaic = document.querySelector('.mosaic');
+    const vignette = document.querySelector('.vignette');
+    const title = document.querySelector('.title-container');
+    const blocks = document.querySelectorAll('.info-block');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {threshold: 0.1});
+
+    blocks.forEach(b => observer.observe(b));
+
+    mosaic.addEventListener('scroll', () => {
+      const ratio = Math.min(mosaic.scrollTop / 200, 1);
+      vignette.style.opacity = 1 - ratio;
+      title.style.opacity = 1 - ratio;
+    });
+  </script>
 </body>
 </html>
