@@ -44,14 +44,24 @@
           const item = document.createElement('div');
           item.classList.add('mosaic-item');
           if (Math.random() < 0.3) {
-            item.classList.add(sizeClasses[Math.floor(Math.random()*sizeClasses.length)]);
+            item.classList.add(sizeClasses[Math.floor(Math.random() * sizeClasses.length)]);
           }
           const img = document.createElement('img');
           img.src = path;
           item.appendChild(img);
           mosaic.appendChild(item);
         });
+        scrollToTitle();
       });
+
+    function scrollToTitle() {
+      const title = mosaic.querySelector('.title-block');
+      if (title) {
+        const top = title.offsetTop - mosaic.clientHeight / 2 + title.clientHeight / 2;
+        mosaic.scrollTo({ top });
+        updateUI();
+      }
+    }
 
     function updateUI() {
       const ratio = Math.min(mosaic.scrollTop / 200, 1);
