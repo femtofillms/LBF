@@ -100,6 +100,34 @@ html, body {
 .mosaic-item.tall { grid-row: span 2; }
 .mosaic-item.big  { grid-column: span 2; grid-row: span 2; }
 
+.title-block {
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Source Sans 3', sans-serif;
+  width: 100%;
+  max-width: 600px;
+  padding: 1rem;
+  box-sizing: border-box;
+  justify-self: center;
+}
+.title-block h1 {
+  font-family: 'Red Rose', 'Source Sans 3', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 2px;
+}
+.title-block h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+}
+
 .vignette {
   position: fixed;
   inset: 0;
@@ -112,44 +140,6 @@ html, body {
   mix-blend-mode: multiply;
 }
 
-.center-image {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 250px;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.center-text {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  color: #fff;
-  font-family: 'Source Sans 3', sans-serif;
-  z-index: 10;
-  pointer-events: none;
-  transition: opacity 0.4s;
-}
-
-.center-text h1 {
-  font-family: 'Red Rose', 'Source Sans 3', sans-serif;
-  font-size: 4rem;
-  font-weight: 700;
-  margin: 0;
-  letter-spacing: 3px;
-  text-shadow: 0 0 12px rgba(0, 0, 0, 0.8);
-}
-
-.center-text h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin: 0.75rem 0 0;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-}
 
 
 .edge-fade {
