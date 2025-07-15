@@ -15,10 +15,6 @@
   </div>
   <div class="vignette"></div>
   <div class="edge-fade"></div>
-  <div class="center-text">
-    <h1>LA BANDE À FEMTO</h1>
-    <h2>VOTRE BANDE DÉMO SUR-MESURE</h2>
-  </div>
 
 
 
@@ -27,14 +23,27 @@
     const mosaic = document.querySelector('.mosaic');
     const vignette = document.querySelector('.vignette');
     const edgeFade = document.querySelector('.edge-fade');
-    const centerText = document.querySelector('.center-text');
+
+    function createTitleBlock() {
+      const block = document.createElement('div');
+      block.classList.add('mosaic-item', 'title-block', 'big');
+      block.innerHTML = '<h1>LA BANDE À FEMTO</h1><h2>VOTRE BANDE DÉMO SUR-MESURE</h2>';
+      return block;
+    }
 
     fetch('images/image_list.json')
       .then(r => r.json())
       .then(list => {
         list.sort(() => Math.random() - 0.5);
+        const midIndex = Math.floor(list.length / 2);
         const sizeClasses = ['big', 'tall', 'wide'];
-        list.forEach(path => {
+        const titleBlock = createTitleBlock();
+        let inserted = false;
+        list.forEach((path, i) => {
+          if (i === midIndex) {
+            mosaic.appendChild(titleBlock);
+            inserted = true;
+          }
           const item = document.createElement('div');
           item.classList.add('mosaic-item');
           if (Math.random() < 0.3) {
@@ -45,17 +54,21 @@
           item.appendChild(img);
           mosaic.appendChild(item);
         });
+        if (!inserted) {
+          mosaic.appendChild(titleBlock);
+        }
+
+        requestAnimationFrame(() => {
+          const offset = titleBlock.offsetTop - mosaic.clientHeight / 2 + titleBlock.clientHeight / 2;
+          mosaic.scrollTop = Math.max(0, offset);
+          updateUI();
+        });
       });
 
     function updateUI() {
       const ratio = Math.min(mosaic.scrollTop / 200, 1);
       vignette.style.opacity = 1 - 0.8 * ratio;
       edgeFade.style.opacity = 1 - ratio;
-      if (ratio > 0.3) {
-        centerText.style.opacity = 0;
-      } else {
-        centerText.style.opacity = 1;
-      }
     }
 
     mosaic.addEventListener('scroll', updateUI);
