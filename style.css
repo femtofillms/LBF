@@ -100,6 +100,29 @@ html, body {
 .mosaic-item.tall { grid-row: span 2; }
 .mosaic-item.big  { grid-column: span 2; grid-row: span 2; }
 
+.title-block {
+  background: #000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-family: 'Source Sans 3', sans-serif;
+}
+.title-block h1 {
+  font-family: 'Red Rose', 'Source Sans 3', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 2px;
+}
+.title-block h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0.5rem 0 0;
+}
+
 .vignette {
   position: fixed;
   inset: 0;
