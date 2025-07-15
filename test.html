@@ -3,67 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Mosaïque d'images 100vh</title>
-  <style>
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      background: #000;
-    }
-
-    .mosaic {
-      height: 100vh;
-      width: 100vw;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-      grid-auto-rows: 120px;
-      grid-auto-flow: dense;
-      gap: 6px;
-      padding: 6px;
-      box-sizing: border-box;
-      overflow-y: auto;
-    }
-
-    .mosaic-item {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-    }
-
-    .mosaic-item img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-    }
-
-    .mosaic-item.wide { grid-column: span 2; }
-    .mosaic-item.tall { grid-row: span 2; }
-    .mosaic-item.big  { grid-column: span 2; grid-row: span 2; }
-
-    .vignette {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 20;
-      background: radial-gradient(ellipse at center,
-          rgba(0,0,0,0) 35%,
-          rgba(0,0,0,0.9) 80%,
-          rgba(0,0,0,1) 100%);
-      mix-blend-mode: multiply;
-    }
-
-    .center-image {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 250px;
-      pointer-events: none;
-      z-index: 10;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="mosaic">
