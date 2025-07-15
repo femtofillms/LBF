@@ -65,7 +65,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
   background: #000;
 }
 
@@ -138,6 +139,7 @@ html, body {
   font-size: 3rem;
   margin: 0;
   letter-spacing: 2px;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
 }
 
 .center-text h2 {
