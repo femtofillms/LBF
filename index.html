@@ -22,11 +22,57 @@
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="text-center p-5">
-    <h1 class="display-5 fw-bold">La Bande à FEMTO</h1>
-    <p class="lead">Votre bande démo sur-mesure</p>
-  </header>
+<!-- 1. Structure HTML -->
+<div class="container">
+  <h1 style="text-align:center;">Mosaïque d’images Masonry</h1>
+  <div class="grid">
+    <div class="grid-sizer"></div>
+    <!-- Images : colle ici tes images -->
+    <div class="grid-item"><img src="/LBF/images/DSC02603.JPG" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/DSC02615.JPG" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/DSC02798.JPG" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/DSC02904.JPG" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/DSC02997.JPG" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/DSC03241.JPG" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_ADLC_V1_1.7.1.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_ADLC_V1_1.21.1.PRE.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_ADLC_V1_1.30.1.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_ADLC_V1_1.34.1.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_GRIBOUILLE_V1_1.15.1.PRE.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_GRIBOUILLE_V1_1.34.1.PRE.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_RUPTUR_VDEF_1.41.1.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_RUPTUR_VDEF_1.117.1.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/ETALOS_RUPTUR_VDEF_1.126.1.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3087.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3286-2.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3297.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3377.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3492.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3622.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3654.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3687.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3818.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3851.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_3940.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_4025.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/IMG_4036.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/Logo_FEMTO_I_icon_CLARET2_SurFond.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/Logo_FEMTO_I_Typo2_CLARET.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/Photo 16-03-2024 07 29 27.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/Photo 16-03-2024 08 46 08.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/Photo 16-03-2024 08 56 01.jpg" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_1.20.1.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_1.24.1.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_1.42.1.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_1.73.1.png" alt=""></div>
+    <div class="grid-item"><img src="/LBF/images/PULSION_ETALOS_V1_2.1.1.png" alt=""></div>
+  </div>
+</div>
+  
+  
+  
+  
+
 
 <!-- ETAPES -->
 <section class="container-fluid my-2 px-0">
@@ -115,8 +161,7 @@
 
   </div>
 </section>
-    
-  <!-- EXEMPLES -->
+  
 
 <!-- EXEMPLES -->
 <section class="container-fluid py-5">
@@ -381,6 +426,21 @@
     }
   });
 </script>
+
+<!-- Masonry.js : à charger à la fin -->
+<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+<script>
+  window.onload = function() {
+    new Masonry('.grid', {
+      itemSelector: '.grid-item',
+      columnWidth: '.grid-sizer',
+      gutter: 10,
+      percentPosition: true
+    });
+  }
+</script>
+
+
 
     
 
