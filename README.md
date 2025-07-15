@@ -15,3 +15,13 @@ All dependencies are loaded from their respective CDN links in `index.html` and 
 Clone the repository or download the files, then open either `index.html` or `test.html` directly in your web browser. No build step is required.
 
 Both files display a responsive image grid using Bootstrap and custom CSS.
+
+### Updating the image list
+
+Any time you add or remove files in the `images/` folder, run:
+
+```bash
+python3 scripts/generate_image_list.py
+```
+
+This script scans the `images/` directory and updates `images/image_list.json` which is used by `test.html` to load the gallery dynamically.
